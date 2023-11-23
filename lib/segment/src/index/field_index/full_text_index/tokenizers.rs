@@ -18,7 +18,9 @@ fn generate_trigrams(word: &str) -> Vec<&str> {
 
     let mut trigrams = Vec::new();
     for i in 0..word.len() - 2 {
-        trigrams.push(&word[i..i + 3]);
+        if let Some(trigram) = word.get(i..i + 3) {
+            trigrams.push(trigram);
+        }
     }
     trigrams
 }
